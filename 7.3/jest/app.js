@@ -1,14 +1,32 @@
 function sortByName(inputArray) {
+
+  if (!Array.isArray(inputArray)) {
+    return [];
+  }
+
+
+  if (inputArray.length === 0) {
+    return [];
+  }
+
   inputArray.sort(function (a, b) {
-    var nameA = a.toLowerCase(),
-      nameB = b.toLowerCase();
-    if (nameA < nameB)
-      //сортируем названия по возрастанию
+    var nameA = a.toLowerCase();
+    var nameB = b.toLowerCase();
+
+    if (nameA < nameB) {
       return -1;
-    if (nameA > nameB) return 1;
-    return 0; // нет сортировки
+    }
+
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    return 0;
   });
+
   return inputArray;
 }
 
-exports.sortByName = sortByName;
+module.exports = {
+  sortByName,
+};
